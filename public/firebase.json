@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": ".",
+    "site": "mywater-abc",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
