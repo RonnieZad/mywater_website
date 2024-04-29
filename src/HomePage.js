@@ -1,11 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Page, Tabbar, TabbarLink, Icon, Block } from 'konsta/react';
+import React, { useState } from 'react';
+import { Page, Tabbar, TabbarLink, Icon } from 'konsta/react';
 import { GearAlt, HouseAlt, Qrcode } from 'framework7-icons/react';
 import Home from './Home';
 import SettingsPage from './SettingsPage';
 import ScanPage from './ScanPage';
-import { useAuth } from './contexts/AuthContext';
-
 
 export default function HomePage({ userData }) {
     const [activeTab, setActiveTab] = useState('tab-1');
