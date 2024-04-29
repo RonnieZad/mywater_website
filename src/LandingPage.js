@@ -12,11 +12,10 @@ const LandingPage = () => (
     <div className="w-full h-screen">
         <Header />
         <HomeSection />
-        <FeatureList/>
+        <FeatureList />
         <PatneringCompanies />
         <CTA />
-        <Index/>
-        
+        <Index />
     </div>
 
 );
