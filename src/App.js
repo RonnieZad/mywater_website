@@ -1,11 +1,9 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Outlet, Navigate } from 'react-router-dom';
-import HomePage from './HomePage';
-import Login from './LoginPage';
+import { BrowserRouter as Router, Route, Routes, Outlet,  } from 'react-router-dom';
 import axios from 'axios';
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useAuth } from './contexts/AuthContext';
 import LandingPage from './LandingPage'
 
@@ -49,20 +47,6 @@ const App = () => {
   }, [user]); // Log user when it changes
 
 
-  const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const signedInUser = result.user;
-      setUser(signedInUser);
-
-    } catch (error) {
-      console.log(error);
-      // Handle errors
-    }
-  };
 
   const loginUser = async () => {
     console.log(`user logging in ${user == null} `);
@@ -125,16 +109,7 @@ const App = () => {
           <Route
             index
             element={<LandingPage userData={user} />} />
-          {/* <Route
-            path="/login"
-            element={user ? <Navigate to="/" /> : <Login handleGoogleSignIn={handleGoogleSignIn} />}
-          /> */}
-          {/* <Route
-            path="/"
-            element={user ? <Outlet /> : <Navigate to="/login" />}
-          >
-            <Route index element={<HomePage userData={user} />} />
-          </Route> */}
+          
         </Routes>
       </div>
     </Router>
